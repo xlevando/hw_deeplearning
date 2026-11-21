@@ -1,0 +1,79 @@
+{
+  "track": "nlp",
+  "model": "DeepPavlov/rubert-base-cased",
+  "revision": "4036cab694767a299f2b9e6492909664d9414229",
+  "dataset": "RCC-MSU/collection3",
+  "classes": [
+    "LOC",
+    "ORG",
+    "PER"
+  ],
+  "n_train": 9301,
+  "n_val": 2153,
+  "n_test": 1922,
+  "params_total": 177268231,
+  "baseline": {
+    "majority": {
+      "f1_micro": 0.5613437195715676,
+      "f1_macro": 0.5785510074917143,
+      "precision": 0.5625762381068553,
+      "recall": 0.5601165897498178
+    },
+    "random_head": {
+      "f1_micro": 0.0204813461140611,
+      "f1_macro": 0.020708955229378486,
+      "precision": 0.011934900542495479,
+      "recall": 0.07213990769978139
+    }
+  },
+  "final": {
+    "f1_micro": 0.9761015683345781,
+    "f1_macro": 0.9745937194912545,
+    "precision": 0.9722291098437887,
+    "recall": 0.9800049987503124,
+    "token_f1": 0.98539743766359,
+    "per_type": {
+      "LOC": {
+        "precision": 0.9806397306397306,
+        "recall": 0.9914893617021276,
+        "f1-score": 0.9860347016504443,
+        "support": 1175
+      },
+      "ORG": {
+        "precision": 0.9340141398271798,
+        "recall": 0.946656050955414,
+        "f1-score": 0.9402926057730328,
+        "support": 1256
+      },
+      "PER": {
+        "precision": 0.9968193384223919,
+        "recall": 0.9980891719745223,
+        "f1-score": 0.9974538510502864,
+        "support": 1570
+      }
+    }
+  },
+  "ablation": {
+    "name": "freeze",
+    "full": {
+      "f1_micro": 0.9782608695652175,
+      "seconds": 158.37335428400002,
+      "trainable_params": 177268231
+    },
+    "frozen": {
+      "f1_micro": 0.8875250796648175,
+      "seconds": 256.46985509399997,
+      "trainable_params": 5383
+    }
+  },
+  "errors": {
+    "correct": 4050,
+    "boundary": 54,
+    "spurious": 42,
+    "missed": 5,
+    "type": 8
+  },
+  "device": "Tesla T4",
+  "train_time_sec": 158.37335428400002,
+  "fast_mode": false
+}
